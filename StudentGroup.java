@@ -74,17 +74,40 @@ public class StudentGroup implements StudentArrayOperation {
 		{
 		 throw new IllegalArgumentException();
 		}
-		this.students[index]=student;
+		else{
+			this.students[index]=student;
+		}
 	}
 
 	@Override
 	public void addFirst(Student student) {
-		// Add your implementation here
+		if(student==null){
+			throw new IllegalArgumentException();
+		}
+		Student stu=students[0];
+		students[0]=student;
+		Student stu1;
+		for(int i=1;i<students.length;i++)
+		{
+		stu1=students[i];
+		students[i]=stu;
+		stu=stu1;
+		}
+		
 	}
 
 	@Override
 	public void addLast(Student student) {
 		// Add your implementation here
+		if(student==null)
+			throw new IllegalArgumentException();
+		for(int i=0;i<students.length;i++)
+		{
+		if(students[i]==null){
+		students[i]=student;
+		break;
+		}
+		}
 	}
 
 	@Override
